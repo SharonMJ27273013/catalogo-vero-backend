@@ -1,18 +1,13 @@
-import com.sun.net.httpserver.*;
-import java.io.*;
+import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
-import java.util.*;
 
 public class Server {
-
-    // 🧠 Carrito en memoria (simula base de datos)
-    static List<Map<String, Object>> carrito = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
 
         int port = Integer.parseInt(System.getenv("PORT"));
-HttpServer.create(new InetSocketAddress(port), 0);
 
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         // ================= PRODUCTOS =================
         server.createContext("/productos", exchange -> {
 
@@ -128,7 +123,7 @@ HttpServer.create(new InetSocketAddress(port), 0);
 
 
         server.start();
-        System.out.println("🔥 Servidor corriendo en http://localhost:8000");
+        System.out.println("Servidor corriendo");
     }
 
 
