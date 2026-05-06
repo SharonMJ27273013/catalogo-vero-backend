@@ -10,7 +10,8 @@ public class Server {
 
     public static void main(String[] args) throws Exception {
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        int port = Integer.parseInt(System.getenv("PORT"));
+HttpServer.create(new InetSocketAddress(port), 0);
 
         // ================= PRODUCTOS =================
         server.createContext("/productos", exchange -> {
